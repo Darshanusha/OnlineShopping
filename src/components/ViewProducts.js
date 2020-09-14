@@ -12,7 +12,7 @@ class ViewProducts extends Component {
             return <div>Loading..!</div>
         }
         return this.props.prodCategories.map((category, index) => {
-            return <div key={index} className="card col-md-3" > <Link className="card-body" to={`/product/${category}`}><h4>{category}</h4></Link></div>;
+            return <div key={category.id} className="card col-md-3" > <Link className="card-body" to={`/product/${category.name}`}><h4>{category.name}</h4></Link></div>;
         })
     }
     render() {
@@ -27,7 +27,7 @@ class ViewProducts extends Component {
 }
 
 const mapStateToProps = (state) => {
-    return { products: Object.values(state.products), prodCategories: state.categories };
+    return { products: Object.values(state.products), prodCategories: Object.values(state.categories) };
 }
 
 export default connect(mapStateToProps, { categories })(ViewProducts);

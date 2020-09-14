@@ -3,6 +3,7 @@ import { reduxForm, Field } from 'redux-form';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { connect } from 'react-redux';
 import { categories, addProducts } from '../actions';
+import { Link } from 'react-router-dom';
 
 class AddProducts extends Component {
     handleOnSub = (e) => {
@@ -41,7 +42,7 @@ class AddProducts extends Component {
     renderOptions = () => {
         return <>
             {this.props.categ && this.props.categ.map((category) => {
-                return <option key={category} value={category}>{category}</option>
+                return <option key={category.id} value={category.name}>{category.name}</option>
             })}
         </>
     }
@@ -53,10 +54,10 @@ class AddProducts extends Component {
                     Select Category : <Field className = "custom-select col-md-3" name="selectCat" component="select" >
                         <option>Select</option>
                         {this.renderOptions()}
-                    </Field>
+                    </Field> <Link to = '/component/edit' className = "btn btn-primary" >Edit Category</Link>
                     <Field name="name" component={this.getTextbox} label="Name" type = "text" />
                     <Field name="cost" component={this.getTextbox} label="Cost" type = "number" />
-
+                    
                     <br />
                     <button name="Add Product" className="btn btn-primary">Submit</button>
                 </form>
@@ -80,7 +81,7 @@ const validate = (formVal) => {
 }
 
 const mapStateToProps = (state) => {
-    return { categ: state.categories }
+    return { categ: Object.values(state.categories) }
 }
 
 const formWraap = reduxForm({

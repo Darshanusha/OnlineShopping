@@ -13,3 +13,13 @@ export const getAllProducts = ()=> async (dispatch:any)=>{
     const response = await products.get('/products');
     dispatch({type:"ALL_PRODUCTS", payload:response.data});
 }
+
+export const deleteCategory =(id:any) => async(dispatch:any)=>{
+    const response = await products.delete(`/categories/${id}`);
+    dispatch({type:"DELETE_CATEGORY", payload:response.data});
+}
+
+export const addCategory = (category:any) => async (dispatch:any)=>{
+    const response = await products.post('/categories',category);
+    dispatch({type:"ADD_CATEGORIES", payload:response.data})
+}
