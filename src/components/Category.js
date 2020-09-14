@@ -20,6 +20,7 @@ class Category extends Component {
                     </div><br />
                 </div>
             }
+            return<div>Sorry!! No products to display</div>;
         })
     }
     renderCat = () => {

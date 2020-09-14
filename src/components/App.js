@@ -4,6 +4,7 @@ import { Router, Route } from 'react-router-dom';
 import history from '../history/History';
 import ViewProducts from './ViewProducts';
 import Category from './Category';
+import EditCategory from './EditCategory';
 
 class App extends Component {
     render() {
@@ -13,6 +14,7 @@ class App extends Component {
                     <Route exact path="/admin" component={AddProducts} />
                     <Route exact path="/" component={ViewProducts} />
                     <Route exact path='/product/:category' component={Category} />
+                    <Route exact path='/component/edit' component = {EditCategory}/>
                 </Router>
             </div>
         );
