@@ -70,8 +70,8 @@ const validate = (formVal) => {
     if (!formVal.name) {
         error.name = "Please enter name"
     }
-    if (!formVal.Description) {
-        error.Description = "Please enter Description"
+    if (!formVal.cost) {
+        error.cost = "Please enter cost"
     }
     if (!formVal.selectCat) {
         error.selectCat = "Please select a category"
