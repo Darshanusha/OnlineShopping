@@ -16,6 +16,7 @@ class EditCategory extends Component {
     }
 
     renderCategory = () => {
+
         if (!this.props.cat) {
             return <div>Loading..!</div>;
         }
