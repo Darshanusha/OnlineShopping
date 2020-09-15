@@ -8,13 +8,31 @@ class ViewProducts extends Component {
         this.props.categories();
     }
     renderProdCategories() {
+        //console.log(this.props);
         if (!this.props.prodCategories) {
             return <div>Loading..!</div>
         }
         return this.props.prodCategories.map((category, index) => {
-            return <div key={category.id} className="card col-md-3" > <Link className="card-body" to={`/product/${category.name}`}><h4>{category.name}</h4></Link></div>;
+            //console.log(this.props.fromAdmin);
+            return <div key={category.id} className="card col-md-4" >
+                 {this.getCard(category)}
+                 </div>;
         })
     }
+
+    getCard = (category)=>{
+        if(!this.props.fromAdmin){
+            return <div>
+            <Link className="card-body" to={`/product/${category.name}/user`}>
+        <h4>{category.name}</h4></Link>
+        </div>
+        }
+        return <div>
+            <Link className="card-body" to={`/product/${category.name}/admin`}>
+        <h4>{category.name}</h4></Link>
+        </div>
+    }
+
     render() {
         return (
             <div className = "ml-3 mt-2">

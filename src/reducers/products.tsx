@@ -9,5 +9,8 @@ export default (state={},action:any) =>{
     if(action.type === 'DELETE_CATEGORY'){
         return _.omit(state,action.payload);
     }
+    if(action.type === 'DELETE_PRODUCT'){
+        return _.omit(state,action.payload);
+    }
     return state;
 }

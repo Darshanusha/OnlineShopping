@@ -8,7 +8,7 @@ class EditCategory extends Component {
         this.props.categories();
     }
 
-    state = { frm: <div></div>, categVal:"" }
+    state = { frm: <div></div>, categVal: "" }
 
     delete = (val) => {
         this.props.deleteCategory(val);
@@ -34,25 +34,32 @@ class EditCategory extends Component {
         })
     }
 
-    handleAdd = ()=>{
-        this.props.addCategory({name:this.state.categVal});
+    handleAdd = () => {
+        this.props.addCategory({ name: this.state.categVal });
         this.props.categories();
     }
 
     renderSmallForm = () => {
-        const c = <div>
-            <h4>Add Form details</h4>
-            Category: <input type = "text" name = "newCat" onChange = {(e)=>this.setState({categVal:e.target.value })}  autoComplete = "off"/>&nbsp;
-            <button className = "btn btn-success" onClick = {this.handleAdd} >Add</button>&nbsp;
-            <button className = "btn btn-warning" onClick = {()=>this.setState({frm:<div></div>})} >Cancel</button>
+        const c = <div className="bg-dark">
+            <div className="clear-flex">
+                <span className="float-right">
+                    <h4>Add Form details</h4>
+            Category: <input type="text" name="newCat" onChange={(e) => this.setState({ categVal: e.target.value })} autoComplete="off" />&nbsp;
+            <button className="btn btn-success" onClick={this.handleAdd} >Add</button>&nbsp;
+            <button className="btn btn-warning" onClick={() => this.setState({ frm: <div></div> })} >Cancel</button>
+                </span>
             </div>
+        </div>
         this.setState({ frm: c });
     }
 
     render() {
         return (
             <div className="ml-3 mt-1">
-                <h3>Edit Category</h3><button className="btn btn-success" onClick={this.renderSmallForm} >Add Category</button>
+                <div className="clear-flex">
+                    <button className="btn btn-success float-right" onClick={this.renderSmallForm} >Add Category</button>
+                    <h3>Edit Category</h3>
+                </div>
                 <div>{this.state.frm}</div>
                 <table >{this.renderCategory()}</table>
             </div>

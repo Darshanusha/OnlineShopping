@@ -6,5 +6,6 @@ import products from './products';
 export default combineReducers({
     form: reducer,
     categories: categories,
-    products: products
+    products: products,
+    admin: ()=>true
 })
