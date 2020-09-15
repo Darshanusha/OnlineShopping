@@ -34,7 +34,6 @@ class EditCategory extends Component {
     }
 
     handleAdd = ()=>{
-        console.log(this.state.categVal);
         this.props.addCategory({name:this.state.categVal});
         this.props.categories();
     }

@@ -7,9 +7,7 @@ import { Link } from 'react-router-dom';
 
 class AddProducts extends Component {
     handleOnSub = (e) => {
-        console.log("Form submit", e);
         this.props.addProducts(e);
-        //console.log(this.props);
         this.props.reset();
     }
 
@@ -18,7 +16,6 @@ class AddProducts extends Component {
     }
 
     renderError = (meta) => {
-        // console.log("err ", meta.error, " touched ", meta.touched);
         if (meta.error && meta.touched) {
             return (
                 <div className="text-danger" >
