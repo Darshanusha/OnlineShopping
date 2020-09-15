@@ -18,7 +18,6 @@ class ViewProducts extends Component {
     render() {
         return (
             <div className = "ml-3 mt-2">
-                {/* {console.log(this.props)} */}
                 <h2>Category</h2>
                 <div>{this.renderProdCategories()}</div>
             </div>

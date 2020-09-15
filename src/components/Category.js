@@ -20,6 +20,7 @@ class Category extends Component {
                     </div><br />
                 </div>
             }
+            return<div>Sorry!! No products to display</div>;
         })
     }
     renderCat = () => {
@@ -32,7 +33,6 @@ class Category extends Component {
         return (
             <div className = "ml-3 mt-2">
                 <h2 >{this.renderCat()}</h2>
-                {/* {console.log(this.props.match.params.category)} */}
                 {this.renderCategory()}
             </div>
         )

@@ -16,7 +16,7 @@ class EditCategory extends Component {
     }
 
     renderCategory = () => {
-        //console.log(this.props.cat)
+
         if (!this.props.cat) {
             return <div>Loading..!</div>;
         }
@@ -35,14 +35,11 @@ class EditCategory extends Component {
     }
 
     handleAdd = ()=>{
-        console.log(this.state.categVal);
         this.props.addCategory({name:this.state.categVal});
-        //this.setState({categVal:""})
         this.props.categories();
     }
 
     renderSmallForm = () => {
-        //console.log('clicked');
         const c = <div>
             <h4>Add Form details</h4>
             Category: <input type = "text" name = "newCat" onChange = {(e)=>this.setState({categVal:e.target.value })}  autoComplete = "off"/>&nbsp;
